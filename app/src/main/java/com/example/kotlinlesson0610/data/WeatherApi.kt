@@ -1,6 +1,6 @@
-package com.example.kotlinlesson0610.weather_screen.data
+package com.example.kotlinlesson0610.data
 
-import com.example.kotlinlesson0610.weather_screen.data.api.model.WeatherModel
+import com.example.kotlinlesson0610.data.api.model.WeatherModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface WeatherApi {
 
     @GET("/weather")
-    fun getWeather(
+    suspend fun getWeather(
         @Query("q") cityName: String,
         @Query("appid") appId: String = "33ae2570581f89ec8a89d91abbcbc508",
         @Query("units") units: String = "metric"
