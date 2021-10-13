@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.kotlinlesson0610.R
+import com.example.kotlinlesson0610.domain.model.WeatherDomainModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class WeatherScreenActivity() : AppCompatActivity() {
@@ -16,9 +17,13 @@ class WeatherScreenActivity() : AppCompatActivity() {
         weatherViewModel.requesWeather()
     }
 
-    private fun render(state: String) {
-        findViewById<TextView>(R.id.tvTempeture).let { it.text = state }
-
+    private fun render(state: WeatherDomainModel) {
+        findViewById<TextView>(R.id.tvTempeture).let {
+            it.text = state.temperature + " температура"
+        }
+        findViewById<TextView>(R.id.tvminTempeture).let {
+            it.text = state.temperatures + " минимальная температура"
+        }
     }
 
 }

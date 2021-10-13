@@ -1,10 +1,12 @@
 package com.example.kotlinlesson0610.domain
 
-import com.example.kotlinlesson0610.data.WeatherRepository
-import com.example.kotlinlesson0610.domain.model.WetherDomainModel
+import com.example.kotlinlesson0610.data.api.WeatherRepo
+import com.example.kotlinlesson0610.domain.model.WeatherDomainModel
 
-class WeatherInteractor(private val repository: WeatherRepository) { //конструктор, чтоб обратиться к repoz b методу
-    suspend fun getWeather(): WetherDomainModel {
+
+// можем объединить тут несколько репозиториев
+class WeatherInteractor(private val repository: WeatherRepo) {
+    suspend fun getWeather(): WeatherDomainModel {
         return repository.getWeather()
     }
 }

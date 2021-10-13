@@ -1,9 +1,9 @@
 package com.example.kotlinlesson0610.weather_screen.di
 
-import com.example.kotlinlesson0610.data.WeatherApi
-import com.example.kotlinlesson0610.data.WeatherRemoteSourse
-import com.example.kotlinlesson0610.data.WeatherRepository
-import com.example.kotlinlesson0610.data.WeatherRepositoryImpl
+import com.example.kotlinlesson0610.data.api.WeatherApi
+import com.example.kotlinlesson0610.data.api.WeatherRemoteSource
+import com.example.kotlinlesson0610.data.api.WeatherRepo
+import com.example.kotlinlesson0610.data.api.WeatherRepoImpl
 import com.example.kotlinlesson0610.domain.WeatherInteractor
 import com.example.kotlinlesson0610.weather_screen.ui.WeatherScreenViewModel
 import okhttp3.OkHttpClient
@@ -31,16 +31,16 @@ val appModule = module {
         get<Retrofit>().create(WeatherApi::class.java)
     }
     // синголтон с типом WRS на зо создаем WRS
-    single<WeatherRemoteSourse> {
-        WeatherRemoteSourse(get<WeatherApi>())
+    single<WeatherRemoteSource> {
+        WeatherRemoteSource(get<WeatherApi>())
     }
 
-    single<WeatherRepository> {
-        WeatherRepositoryImpl(get<WeatherRemoteSourse>())
+    single<WeatherRepo> {
+        WeatherRepoImpl(get<WeatherRemoteSource>())
     }
 
     single<WeatherInteractor> {
-        WeatherInteractor(get<WeatherRepository>())
+        WeatherInteractor(get<WeatherRepo>())
     }
     viewModel<WeatherScreenViewModel> {
         WeatherScreenViewModel(get<WeatherInteractor>())
