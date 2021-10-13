@@ -22,7 +22,19 @@ class WeatherScreenActivity() : AppCompatActivity() {
             it.text = state.temperature + " температура"
         }
         findViewById<TextView>(R.id.tvminTempeture).let {
-            it.text = state.temperatures + " минимальная температура"
+            it.text = state.tempMin + " минимальная температура"
+        }
+        findViewById<TextView>(R.id.textViewMax).let {
+            it.text = state.tempMax + " максимальная температура"
+        }
+        findViewById<TextView>(R.id.textViewpress).let {
+            it.text = state.pressure + " атмосферное давление"
+        }
+        findViewById<TextView>(R.id.textViewhudr).let {
+            it.text = state.humidity + " влажность"
+        }
+        findViewById<TextView>(R.id.textViewfeel).let {
+            it.text = state.feelsLike + " температура по ощущению"
         }
     }
 
