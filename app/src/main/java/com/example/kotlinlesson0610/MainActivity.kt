@@ -1,7 +1,10 @@
 package com.example.kotlinlesson0610
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import com.example.kotlinlesson0610.weather_screen.ui.WeatherScreenActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,5 +27,11 @@ class MainActivity : AppCompatActivity() {
 //        filteredList?.let { list ->
 //            textView.text = list.toString()
 //        }
+
+        val weatherButton = findViewById<Button>(R.id.weatherButton)
+        weatherButton.setOnClickListener {
+            Intent(this, WeatherScreenActivity::class.java).also { startActivity(it) }
+
+        }
     }
 }
