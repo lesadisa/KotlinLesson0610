@@ -6,6 +6,9 @@ data class WeatherDomainModel(
     val tempMin: String,
     val tempMax: String,
     val pressure: String,
-    val humidity: String
+    val humidity: String,
+    val speeds: Double,
+    val degs: Int
+
 )
 

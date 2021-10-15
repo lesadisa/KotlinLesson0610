@@ -9,4 +9,5 @@ class WeatherInteractor(private val repository: WeatherRepo) {
     suspend fun getWeather(): WeatherDomainModel {
         return repository.getWeather()
     }
+
 }

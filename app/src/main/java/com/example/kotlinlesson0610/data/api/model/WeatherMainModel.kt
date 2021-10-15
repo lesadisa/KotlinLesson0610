@@ -14,7 +14,9 @@ data class WeatherMainModel(
     @SerializedName("pressure")
     val pressure: String, //Атмосферное давление
     @SerializedName("humidity")
-    val humidity: String //Влажность dв процентах
+    val humidity: String, //Влажность dв процентах
+
+
 ) {
 
     /*   "main": {
